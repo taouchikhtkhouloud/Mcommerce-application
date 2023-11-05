@@ -1,0 +1,434 @@
+[
+    {
+    "name": "iPhone 9",
+    "description": "An apple mobile which is nothing like apple",
+    "price": 549,
+    "rating": 4.69,
+    "stock": 94,
+    "category": "smartphones",
+    "image": "https://i.dummyjson.com/data/products/1/1.jpg"
+},
+{
+    "name": "iPhone X",
+    "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    "price": 899,
+    "rating": 4.44,
+    "stock": 34,
+    "category": "smartphones",
+    "image": "https://i.dummyjson.com/data/products/2/1.jpg"
+},
+{
+    "name": "Samsung Universe 9",
+    "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+    "price": 1249,
+    "rating": 4.09,
+    "stock": 36,
+    "category": "smartphones",
+    "image": "https://i.dummyjson.com/data/products/3/1.jpg"
+},
+{
+    "name": "OPPOF19",
+    "description": "OPPO F19 is officially announced on April 2021.",
+    "price": 280,
+    "rating": 4.3,
+    "stock": 123,
+    "category": "smartphones",
+    "image": "https://i.dummyjson.com/data/products/4/1.jpg"
+},
+{
+    "name": "Huawei P30",
+    "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+    "price": 499,
+    "rating": 4.09,
+    "stock": 32,
+    "category": "smartphones",
+    "image": "https://i.dummyjson.com/data/products/5/1.jpg"
+},
+{
+    "name": "MacBook Pro",
+    "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+    "price": 1749,
+    "rating": 4.57,
+    "stock": 83,
+    "category": "laptops",
+    "image": "https://i.dummyjson.com/data/products/6/1.png"
+},
+{
+    "name": "Samsung Galaxy Book",
+    "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+    "price": 1499,
+    "rating": 4.25,
+    "stock": 50,
+    "category": "laptops",
+    "image": "https://i.dummyjson.com/data/products/7/1.jpg"
+},
+{
+    "name": "Microsoft Surface Laptop 4",
+    "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+    "price": 1499,
+    "rating": 4.43,
+    "stock": 68,
+    "category": "laptops",
+    "image": "https://i.dummyjson.com/data/products/8/1.jpg"
+},
+{
+    "name": "Infinix INBOOK",
+    "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+    "price": 1099,
+    "rating": 4.54,
+    "stock": 96,
+    "category": "laptops",
+    "image": "https://i.dummyjson.com/data/products/9/1.jpg"
+},
+{
+    "name": "HP Pavilion 15-DK1056WM",
+    "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+    "price": 1099,
+    "rating": 4.43,
+    "stock": 89,
+    "category": "laptops",
+    "image": "https://i.dummyjson.com/data/products/10/1.jpg"
+},
+    {
+    "name": "perfume Oil",
+    "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+    "price": 13,
+    "rating": 4.26,
+    "stock": 65,
+    "category": "fragrances",
+    "image": "https://i.dummyjson.com/data/products/11/1.jpg"
+},
+{
+    "name": "Brown Perfume",
+    "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+    "price": 40,
+    "rating": 4,
+    "stock": 52,
+    "category": "fragrances",
+    "image": "https://i.dummyjson.com/data/products/12/1.jpg"
+},
+{
+    "name": "Fog Scent Xpressio Perfume",
+    "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+    "price": 13,
+    "rating": 4.59,
+    "stock": 61,
+    "category": "fragrances",
+    "image": "https://i.dummyjson.com/data/products/13/1.jpg"
+},
+{
+    "name": "Non-Alcoholic Concentrated Perfume Oil",
+    "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+    "price": 120,
+    "rating": 4.21,
+    "stock": 114,
+    "category": "fragrances",
+    "image": "https://i.dummyjson.com/data/products/14/1.jpg"
+},
+{
+    "name": "Eau De Perfume Spray",
+    "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+    "price": 30,
+    "rating": 4.7,
+    "stock": 105,
+    "category": "fragrances",
+    "image": "https://i.dummyjson.com/data/products/15/1.jpg"
+},
+{
+    "name": "Hyaluronic Acid Serum",
+    "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+    "price": 19,
+    "rating": 4.83,
+    "stock": 110,
+    "category": "skincare",
+    "image": "https://i.dummyjson.com/data/products/16/1.png"
+},
+{
+    "name": "Tree Oil 30ml",
+    "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+    "price": 12,
+    "rating": 4.52,
+    "stock": 78,
+    "category": "skincare",
+    "image": "https://i.dummyjson.com/data/products/17/1.jpg"
+},
+{
+    "name": "Oil Free Moisturizer 100ml",
+    "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+    "price": 40,
+    "rating": 4.56,
+    "stock": 88,
+    "category": "skincare",
+    "image": "https://i.dummyjson.com/data/products/18/1.jpg"
+},
+{
+    "name": "Skin Beauty Serum.",
+    "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+    "price": 46,
+    "rating": 4.42,
+    "stock": 54,
+    "category": "skincare",
+    "image": "https://i.dummyjson.com/data/products/19/1.jpg"
+},
+{
+    "name": "Freckle Treatment Cream- 15gm",
+    "description": "Fair & Clear is Pakistan's only pure Freckle cream which helps fade Freckles, Dark spots and pigments. Mercury level is 0%, so there are no side effects.",
+    "price": 70,
+    "rating": 4.06,
+    "stock": 140,
+    "category": "skincare",
+    "image": "https://i.dummyjson.com/data/products/20/1.jpg"
+},
+    {
+    "name": "Daal Masoor 500 grams",
+    "description": "Fine quality Branded Product Keep in a cool and dry place",
+    "price": 20,
+    "rating": 4.44,
+    "stock": 133,
+    "category": "groceries",
+    "image": "https://i.dummyjson.com/data/products/21/1.png"
+},
+{
+    "name": "Elbow Macaroni - 400 gm",
+    "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
+    "price": 14,
+    "rating": 4.57,
+    "stock": 146,
+    "category": "groceries",
+    "image": "https://i.dummyjson.com/data/products/22/1.jpg"
+},
+{
+    "name": "Orange Essence Food Flavour",
+    "description": "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
+    "price": 14,
+    "rating": 4.85,
+    "stock": 26,
+    "category": "groceries",
+    "image": "https://i.dummyjson.com/data/products/23/1.jpg"
+},
+{
+    "name": "cereals muesli fruit nuts",
+    "description": "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
+    "price": 46,
+    "rating": 4.94,
+    "stock": 113,
+    "category": "groceries",
+    "image": "https://i.dummyjson.com/data/products/24/1.jpg"
+},
+{
+    "name": "Gulab Powder 50 Gram",
+    "description": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
+    "price": 70,
+    "rating": 4.87,
+    "stock": 47,
+    "category": "groceries",
+    "image": "https://i.dummyjson.com/data/products/25/1.png"
+},
+{
+    "name": "Plant Hanger For Home",
+    "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
+    "price": 41,
+    "rating": 4.08,
+    "stock": 131,
+    "category": "home-decoration",
+    "image": "https://i.dummyjson.com/data/products/26/1.jpg"
+},
+{
+    "name": "Flying Wooden Bird",
+    "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
+    "price": 51,
+    "rating": 4.41,
+    "stock": 17,
+    "category": "home-decoration",
+    "image": "https://i.dummyjson.com/data/products/27/1.jpg"
+},
+{
+    "name": "3D Embellishment Art Lamp",
+    "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
+    "price": 20,
+    "rating": 4.82,
+    "stock": 54,
+    "category": "home-decoration",
+    "image": "https://i.dummyjson.com/data/products/28/1.jpg"
+},
+{
+    "name": "Handcraft Chinese style",
+    "description": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
+    "price": 60,
+    "rating": 4.44,
+    "stock": 7,
+    "category": "home-decoration",
+    "image": "https://i.dummyjson.com/data/products/29/1.jpg"
+},
+{
+    "name": "Key Holder",
+    "description": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
+    "price": 30,
+    "rating": 4.92,
+    "stock": 54,
+    "category": "home-decoration",
+    "image": "https://i.dummyjson.com/data/products/30/1.jpg"
+},
+{
+    "name": "Grand Theft Auto V",
+    "price": 29.99,
+    "description": "When a young street hustler, a retired bank robber and a terrifying psychopath land themselves in trouble, they must pull off a series of dangerous heists to survive in a city in which they can trust nobody, least of all each other.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
+    "stock": 100,
+    "rating": 4.5
+},
+{
+    "name": "Rocket League®",
+    "price": 0,
+    "description": "Rocket League is a high-powered hybrid of arcade-style soccer and vehicular mayhem with easy-to-understand controls and fluid, physics-driven competition.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Rocket_League_coverart.jpg",
+    "stock": 150,
+    "rating": 4.2
+},
+{
+    "name": "Dead by Daylight",
+    "price": 8.99,
+    "description": "Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed.",
+    "category": "game",
+    "image": "https://cdn.shopify.com/s/files/1/0444/8636/1241/products/031IHhxEk8txw0w3IKfGXFiW_png.jpg?v=1630904398",
+    "stock": 80,
+    "rating": 4.0
+},
+{
+    "name": "Control",
+    "price": 34.99,
+    "description": "After a secretive agency in New York is invaded by an otherworldly threat, you become the new Director struggling to regain Control",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/1/16/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B3%D1%80%D1%8B_Control.jpg",
+    "stock": 90,
+    "rating": 4.4
+},
+{
+    "name": "Destiny 2",
+    "price": 0,
+    "description": "Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/05/Destiny_2_%28artwork%29.jpg?20171024034808https://upload.wikimedia.org/wikipedia/en/0/05/Destiny_2_%28artwork%29.jpg?20171024034808",
+    "stock": 120,
+    "rating": 4.1
+},
+{
+    "name": "Metro: Last Light Redux",
+    "price": 8.99,
+    "description": "In a post-apocalyptic Moscow, Artyom holds the key to mankind's survival amidst deadly mutants and civil war. With hand-made weapons and gas masks, face the threat of deadly mutants, human foes, and the terrifying environment in this definitive version of the critically acclaimed classic. Featuring stunning next-gen visuals, all previous DLC, new modes, and the legendary Ranger Mode, this game invites you to experience the ultimate immersive experience.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/c/c4/Metrolastlight.jpg",
+    "stock": 70,
+    "rating": 4.3
+},
+{
+    "name": "PC Building Simulator",
+    "price": 8.99,
+    "description": "Build and grow your very own computer repair enterprise as you learn to diagnose, fix and build PCs. With real-world licensed components and comprehensive hardware and software simulation, you can plan and bring your ultimate PC to life.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/ec/PC_Building_Simulator_Cover.png",
+    "stock": 60,
+    "rating": 4.7
+},
+{
+    "name": "Genshin Impact",
+    "price": 0,
+    "description": "Embark on a journey across Teyvat to find your lost sibling and seek answers from The Seven — the gods of each element. Explore this wondrous world, join forces with a diverse range of characters, and unravel the countless mysteries that Teyvat holds...",
+    "category": "game",
+    "image": "https://cdn1.epicgames.com/offer/879b0d8776ab46a59a129983ba78f0ce/genshintall_1200x1600-4a5697be3925e8cb1f59725a9830cafc",
+    "stock": 110,
+    "rating": 4.6
+},
+{
+    "name": "Cyberpunk 2077",
+    "price": 59.99,
+    "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+    "stock": 50,
+    "rating": 4.8
+},
+{
+    "name": "Far Cry® 6",
+    "price": 59.99,
+    "description": "Enter the adrenaline-filled world of a modern-day guerrilla revolution. With stunning vistas, visceral gunplay, and a huge variety of gameplay experiences, there's never been a better time to join the fight. Play the Far Cry® 6 FREE TRIAL and discover why GAME INFORMER calls it -A nonstop thrill ride from start to finish.- And, when you buy the full game, all of your progression will be saved.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg",
+    "stock": 40,
+    "rating": 4.4
+},
+{
+    "name": "Saints Row",
+    "price": 59.99,
+    "description": "Welcome to Santo Ileso, a vibrant fictional city in the American Southwest. In a world rife with crime, a group of young friends embark on their own criminal venture, as they rise to the top in their bid to become Self Made.",
+    "category": "game",
+    "image": "https://cdn1.epicgames.com/offer/0d23bb77ee2f45b7a571bde68caddb09/EGS_SaintsRow_DeepSilverVolition_S2_1200x1600-d95f6c911a764ad44302f021a3174a24",
+    "stock": 45,
+    "rating": 4.3
+},
+{
+    "name": "Red Dead Redemption 2",
+    "price": 59.99,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, Red Dead Redemption 2 is an epic tale of honor and loyalty at the dawn of the modern age. Includes Red Dead Redemption 2: Story Mode and Red Dead Online.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+    "stock": 30,
+    "rating": 4.9
+},
+{
+    "name": "FIFA 23",
+    "price": 69.99,
+    "description": "FIFA 23 brings The World’s Game to the pitch, with HyperMotion2 Technology, men’s and women’s FIFA World Cup™ coming during the season, women’s club teams, cross-play features*, and more.",
+    "category": "game",
+    "image": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1622/XCzzcOl1IRgWQsrB9MFO7cg3.png",
+    "stock": 55,
+    "rating": 4.7
+},
+{
+    "name": "Dead Island 2",
+    "price": 44.99,
+    "description": "A deadly virus is spreading across Los Angeles, turning inhabitants into zombies. Bitten, infected, but more than just immune, uncover the truth behind the outbreak and discover who -or what- you are.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/08/Dead_Island_2_cover_art.jpg",
+    "stock": 65,
+    "rating": 4.2
+},
+{
+    "name": "F1® 23 Standard Edition",
+    "price": 69.99,
+    "description": "Pre-purchase* F1® 23 Standard Edition and receive the F1® World Starter Pack and 5,000 PitCoin virtual currency to spend in-game.",
+    "category": "game",
+    "image": "https://cdn1.epicgames.com/offer/b7773a08a6fa41e3a0fbc4c1e51c95a4/EGS_F123StandardEdition_Codemasters_S2_1200x1600-9ee0158a6d9f052deb753af836f9bd8d",
+    "stock": 35,
+    "rating": 4.6
+},
+{
+    "name": "The Outlast Trials",
+    "price": 13.99,
+    "description": "Red Barrels invites you to experience mind-numbing terror, this time with friends. Whether you go through the trials alone or in teams, if you survive long enough and complete the therapy, Murkoff will happily let you leave… but will you be the same?",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/81/The_Outlast_Trials_cover.jpg",
+    "stock": 25,
+    "rating": 3.9
+},
+{
+    "name": "Assassin's Creed® Mirage",
+    "price": 49.99,
+    "description": "Experience the story of Basim, a cunning street thief with nightmarish visions, seeking answers and justice as he navigates the bustling streets of ninth-century Baghdad. Through a mysterious, ancient organization known as the Hidden Ones, he will become a deadly Master Assassin and change his fate in ways he never could have imagined.",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/2/23/Assassin%27s_Creed_Mirage_cover.jpeg",
+    "stock": 30,
+    "rating": 4.5
+},
+{
+    "name": "Alan Wake 2",
+    "price": 45.49,
+    "description": "Saga Anderson arrives to investigate ritualistic murders in a small town. Alan Wake pens a dark story to shape the reality around him. These two heroes are somehow connected. Can they become the heroes they need to be?",
+    "category": "game",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/ed/Alan_Wake_2_box_art.jpg",
+    "stock": 28,
+    "rating": 4.0
+}
+]

@@ -1,5 +1,6 @@
-import "../Style/Register.css";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

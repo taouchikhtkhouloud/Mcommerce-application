@@ -44,7 +44,6 @@ function Profile() {
   // }
   return (
     <Fragment>
-      <NavBar />
       <div className="widt">
         <div className="row">
           <div className="col-lg-12">
@@ -78,9 +77,7 @@ function Profile() {
                           <li>
                             Phone Number <span>{user.phone}</span>
                           </li>
-                          <li>
-                            Clips <span>29</span>
-                          </li>
+                         
                         </ul>
                       </div>
                     </div>

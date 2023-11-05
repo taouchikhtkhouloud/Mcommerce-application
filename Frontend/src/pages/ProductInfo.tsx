@@ -1,5 +1,4 @@
 import "../Style/profile.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Fragment, useState, useEffect } from "react";
 
 function ProductInfo() {

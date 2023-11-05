@@ -1,0 +1,184 @@
+.contact-form-container {
+    background: #fefbfb;
+    font-family: "Lato", sans-serif;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .header h1 ,h2{
+    color: #672bac;
+  }
+  
+.contact-us {
+    position: relative;
+    width: 250px;
+    background: #e1c3ec;
+    overflow: hidden;
+  }
+  .contact-us:before {
+    position: absolute;
+    content: "";
+    bottom: -50px;
+    left: -100px;
+    height: 250px;
+    width: 400px;
+    background: #ddb7f8;
+    transform: rotate(25deg);
+  }
+  .contact-us:after {
+    position: absolute;
+    content: "";
+    bottom: -80px;
+    right: -100px;
+    height: 270px;
+    width: 400px;
+    background: #d19eeb;
+    transform: rotate(-25deg);
+  }
+  
+  .contact-header {
+    color: rgb(42, 41, 41);
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 120px;
+    left: -40px;
+  }
+  .contact-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .social-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 75px;
+    z-index: 1;
+    width: 100px;
+  }
+  .social-bar ul {
+    list-style-type: none;
+  }
+  .social-bar ul li {
+    display: inline-block;
+    color: white;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin-right: -4px;
+    font-size: 1.2rem;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 20px 0;
+    color: #444;
+  }
+  .header h1 {
+    font-weight: normal;
+  }
+  .header h2 {
+    margin-top: 10px;
+    font-weight: 300;
+  }
+  
+  .address, .email, .phone {
+    text-align: center;
+    padding: 20px 0;
+    color: #444;
+  }
+  .address h3, .email h3, .phone h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #444;
+  }
+  .address i, .email i, .phone i {
+    color: #f2b7f8;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    position: relative;
+    width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+  form input, form textarea {
+    background: white;
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    border: 0;
+  }
+  form input {
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+    font-size: 1rem;
+    color: rgba(68, 68, 68, 0.8);
+  }
+  form textarea {
+    border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+    resize: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: lato;
+    color: rgba(68, 68, 68, 0.8);
+  }
+  form button {
+    position: absolute;
+    display: block;
+    height: 40px;
+    width: 250px;
+    left: 95px;
+    border: 0;
+    border-radius: 20px;
+    bottom: -20px;
+    background: #672bac;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 300;
+    outline: none;
+  }
+  
+  .contact-form {
+    padding-bottom: 40px;
+  }
+  
+  /* Layout Stuff */
+
+  
+  .contact-form-container {
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 2fr;
+    grid-template-areas: "contact-us header header header" "contact-us address phone email" "contact-us contact-form contact-form contact-form";
+  }
+  
+  .contact-us {
+    grid-area: contact-us;
+  }
+  
+  .header {
+    grid-area: header;
+  }
+  
+  .address {
+    grid-area: address;
+  }
+  
+  .phone {
+    grid-area: phone;
+  }
+  
+  .email {
+    grid-area: email;
+  }
+  
+  .contact-form {
+    grid-area: contact-form;
+  }

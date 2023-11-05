@@ -1,14 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-* {
-    box-sizing: border-box;
-  }
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
+
 h4{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -17,7 +8,6 @@ h4{
   }
 .page-content {
  margin-top: 10px;
- background-color: #27292a;
  padding: 60px;
   }
 

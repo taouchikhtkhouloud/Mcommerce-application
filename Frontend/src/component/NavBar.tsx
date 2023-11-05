@@ -1,10 +1,24 @@
-import "../Style/NavBar.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-import handleSearch from "../pages/Home";
-function NavBar() {
-  const [activeLink, setActiveLink] = useState("home");
-  
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBBtn,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBCollapse,
+} from 'mdb-react-ui-kit';
+import '../Style/NavBar.css'
+
+export default function App() {
+  const [showBasic, setShowBasic] = useState(false);
   function handleLogout() {
     // Clear the token from local storage
     localStorage.removeItem("token");
@@ -13,66 +27,62 @@ function NavBar() {
     window.location.href = "/login";
   }
   
-    const token = localStorage.getItem("token");
-    const loggedIn = !!token;
-    return (
-      <header className="header-area header-sticky">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <nav className="main-nav">
-                <a href="/" className="logo">
-                  <h4>
-                    <em>Gaming</em> Strore
-                  </h4>
-                </a>
-             
-                <ul className="nav">
-                  <li>
-                    <a href="/" className="active">
-                      Home
-                    </a>
-                  </li>
+  const token = localStorage.getItem("token");
+  const loggedIn = !!token;
 
-                  {/* <li>
-                    <a href="/checkout">checkout</a>
-                  </li> */}
-                   {loggedIn ? (
-                    <>
-                    
-                  <li>
-                    <a href="/cart">Cart</a>
-                  </li>
-                  <li>
-                    <button onClick={handleLogout}>Log out</button>
-                  </li>
-                    <li>
-                    <a href="/profile">
-                      Profile <img src="src\assets\profile-header.jpg" alt="" />
-                    </a>
-                  </li>
-                    </>
-                   ) : (
-                    <>
-                    
-                  <li>
-                    <a href="/login">login</a>
-                  </li>
-                  <li>
-                    <a href="/register">sign up</a>
-                  </li>
-                
-                    </>
-                   )}
-                </ul>
-                <a className="menu-trigger">
-                  <span>Menu</span>
-                </a>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </header>
-    );
-  }
-export default NavBar;
+  return (
+    <MDBNavbar expand='lg' dark className='navbar'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='/' style={{ marginRight:'650px' }}>Mcommerce</MDBNavbarBrand>
+
+        <MDBNavbarToggler
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setShowBasic(!showBasic)}
+        >
+          <MDBIcon icon='bars' fas />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar show={showBasic}>
+          <MDBNavbarNav className='mr-auto mb-2 mr-0 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBNavbarLink  aria-current='page' href='/products'>
+                <MDBIcon fas icon="list-alt" /> Products
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            {loggedIn ? (
+              <>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/cart'><MDBIcon fas icon="cart-plus" /> Cart</MDBNavbarLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem>
+                  <MDBDropdown>
+                    <MDBDropdownToggle tag='a' className='nav-link' role='button'>
+                      <MDBIcon fas icon="user-circle" />
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                      <MDBDropdownItem link href='/profile'> <MDBIcon fas icon="user-alt" /> Profile</MDBDropdownItem>
+                      <MDBDropdownItem link onClick={handleLogout}><MDBIcon fas icon="sign-out-alt" /> Log out </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                </MDBNavbarItem>
+              </>
+            ) : (
+              <>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/login'>Sign in</MDBNavbarLink>
+                </MDBNavbarItem>
+
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/register'>Sign up</MDBNavbarLink>
+                </MDBNavbarItem>
+              </>
+            )}
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
+  );
+}
