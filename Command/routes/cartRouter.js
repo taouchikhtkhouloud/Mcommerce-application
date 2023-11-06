@@ -6,11 +6,11 @@ const router = express.Router();
 
 router.get("/", validateToken, getCartProducts);
 
-router.post("/:productid", validateToken, addCartProduct);
+router.post("/", validateToken, addCartProduct);
 
 router.delete("/checkout", validateToken, checkout);
 
-router.delete("/:productid", validateToken, deleteCartProduct);
+router.delete("/:productId", validateToken, deleteCartProduct);
 
 
 module.exports = router

@@ -2,15 +2,10 @@
 
 
 /* Background Styles */
-.backgrounds {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
 
-}
 
 .spacefo2 {
-  padding-top: 100px;
+  padding: 20px;
 }
 
 /* Cart Page Styles */

@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import "../Style/Cart.css";
-import NavBar from "../component/NavBar";
 function Cart() {
 
-  const [cartData, setCartData] = useState({ total: 0, Products: [] });
+  const [cartData, setCartData] = useState({ total: 0, ProductsCart: [] });
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -30,6 +30,7 @@ function Cart() {
           console.log("Welcome to cart");
           const data = await response.json();
           // console.log(data.Products);
+          console.log('data',data);
           setCartData(data);
         } else {
           // Check if token is invalid (e.g., expired or unauthorized)
@@ -59,6 +60,50 @@ function Cart() {
   }, [cartData]);
 
 
+ 
+  const handleDelete = async (productId: string) => {
+    console.log("test",productId)
+    const token = localStorage.getItem("token");
+        console.log('tokem', token);
+
+        // Check if token exists
+        if (!token) {
+          console.log("Token not found");
+          return;
+        }
+    try {
+      const response = await fetch(`http://localhost:3003/cart/${productId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token,
+        },
+      });
+
+      if (response.ok) {
+        // Update the local state to reflect the deleted product.
+        const updatedCart = cartData.ProductsCart.filter(
+          (product) => product.productcartId !== productId
+        );
+
+        const updatedTotal = updatedCart.reduce(
+          (total, product) => total + product.price,
+          0
+        );
+
+        setCartData({
+          ...cartData,
+          ProductsCart: updatedCart,
+          total: updatedTotal,
+        });
+      }
+      else{
+        console.log("some error")
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
 
   return (
     <Fragment>
@@ -80,21 +125,27 @@ function Cart() {
                       <th className="cart-table-desktop cart-table-size">
                         Category
                       </th>
+                      <th className="cart-table-desktop cart-table-size">
+                        Quantity
+                      </th>
                       <th className="cart-table-size right-text-mobile">
                         Price
                       </th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     
-                  {cartData.Products.map((product: any) => (
-                    <tr className="cart-table-content" key={product._id}>
+                  {cartData.ProductsCart.map((product: any) => (
+                    <tr className="cart-table-content" key={product.productcartId}>
                       <td className="cart-table-image-info">
                         <img src={product.image} alt="Product Image"/>
                       </td>
                       <td className="bold-text">{product.name}</td>
                       <td>{product.category}</td>
+                      <td>{product.quantity}</td>
                       <td>${product.price}</td>
+                      <td ><FontAwesomeIcon  icon={faTrash}  onClick={() => handleDelete(product.productcartId)} style={{color: "#f92810",}} /></td>
                     </tr>
                   ))}
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   MDBContainer,
   MDBNavbar,
@@ -22,14 +22,14 @@ export default function App() {
   function handleLogout() {
     // Clear the token from local storage
     localStorage.removeItem("token");
-  
+    
     // Redirect the user to the login page (or any other page)
     window.location.href = "/login";
   }
-  
   const token = localStorage.getItem("token");
-  const loggedIn = !!token;
-
+ 
+ const loggedIn = !!token;
+  
   return (
     <MDBNavbar expand='lg' dark className='navbar'>
       <MDBContainer fluid>
