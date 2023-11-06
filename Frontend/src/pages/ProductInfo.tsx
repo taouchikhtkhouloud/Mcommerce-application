@@ -1,4 +1,4 @@
-import "../Style/profile.css";
+import "../Style/Product.css";
 import { Fragment, useState, useEffect } from "react";
 
 function ProductInfo() {
@@ -55,46 +55,49 @@ function ProductInfo() {
 
   return (
     <Fragment>
-      <div className="widt">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="page-content">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="main-profile ">
-                    <div className="row">
-                      <div className="col-lg-4">
-                        <img src={inputValue.image} alt="" />
-                      </div>
-                      <div className="col-lg-4 align-self-center">
-                        <div className="main-info header-text">
-                          <h4>{inputValue.name}</h4>
-                          <p>{inputValue.description}</p>
-                          <div className="main-button">
-                            <button className="searchButton" type="button" onClick={onSubmithandler}>
-                              Add To Cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-lg-4 align-self-center">
-                        <ul>
-                          <li>
-                            Game Category <span>{inputValue.category}</span>
-                          </li>
-                          <li>
-                            Price <span>{inputValue.price}</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="product">
+      
+      <div className="main">
+        <div className="left">
+          <h1>{inputValue.name}</h1>
+          Category |<h2> {inputValue.category}</h2>
+          <img style={{ height:'200px'}}
+            src={inputValue.image}
+            alt=""
+          />
+        </div>
+        <div className="right">
+          <p>
+            <span className="fa fa-star yellow"></span>
+            <span className="fa fa-star yellow"></span>
+            <span className="fa fa-star yellow"></span>
+            <span className="fa fa-star yellow"></span>
+            <span className="fa fa-star"></span>
+            <span>(4.67 - 172 reviews)</span>
+          </p>
+          <p>
+           {inputValue.description}
+          </p>
+          <h3>${inputValue.price}</h3>
+
+          <p className="quantity">
+            QUANTITY <span className="fa fa-angle-left angle"></span>
+            <span id="qt">3</span>
+            <span className="fa fa-angle-right angle"></span>
+          </p>
         </div>
       </div>
+      <div className="footer">
+        <div className="left">
+          <p>Total price</p>
+          <p id="price">$960.00</p>
+        </div>
+        <div className="right">
+        <button style={{backgroundColor:'#672bac', borderColor:'#672bac'}} onClick={onSubmithandler}  className="btn btn-primary">
+        Add to Cart
+      </button>        </div>
+      </div>
+    </div>
     </Fragment>
   );
 }

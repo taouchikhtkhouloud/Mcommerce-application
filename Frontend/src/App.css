@@ -23,7 +23,18 @@
 
    
 body {
-    background-image: linear-gradient(to top, #dcc6f8 0%, #e7f0fd 100%);
+    background-image: linear-gradient(to top, #e2acee 0%, #e7f0fd 100%),
+	linear-gradient(
+		90deg,
+		#c7a0f4,
+		transparent
+	),
+	linear-gradient(
+		-90deg,
+		#672bac,
+		transparent
+	);
+	;
     font-family: var(--body-font);
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;

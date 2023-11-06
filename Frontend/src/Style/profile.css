@@ -1,24 +1,13 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-* {
-    box-sizing: border-box;
-    
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-  }
+
   .widt {
     padding-top: 50px;
-    background: #27292a;
+    background: transparent;
     width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
     margin-bottom: 0px;
-    color: #fff;
+    color: #4a4949;
     font-weight: 700;
   }
   ul {
@@ -45,9 +34,10 @@ img{
 
   .page-content {
     margin-top: 10px;
-    background-color: #27292a;
+    background-color: #fff;
     padding: 60px;
     border-radius: 23px;
+    
   }
   
   p {
@@ -142,7 +132,7 @@ img{
   .main-profile {
     border-radius: 23px;
     padding: 30px;
-    background-color: #1f2122;
+    background-color: #fff;
   }
   
   .main-profile .main-info span {
@@ -169,7 +159,7 @@ img{
   .main-profile ul {
     border-radius: 23px;
     padding: 30px;
-    background-color: #27292a;
+    background-color: #c760ec;
   }
   
   .main-profile ul li {
@@ -178,13 +168,13 @@ img{
     color:#fff;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #a924ca;
   }
   
   .main-profile ul li span {
     float: right;
     font-weight: 500;
-    color: #ec6090;
+    color: #fff;
   }
   
   .main-profile ul li:last-child {

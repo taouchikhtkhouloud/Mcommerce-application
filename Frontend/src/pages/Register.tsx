@@ -5,204 +5,216 @@ function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState<number | ''>(''); // State for age  
   const [phone, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [confpassword, setconfPassword] = useState("");
+  const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Ensure the input value is within the desired range
+    const newAge = Math.min(130, Math.max(0, +e.target.value)) || '';
 
+    setAge(newAge);
+  };
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:3001/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password, firstName, lastName, age, phone, gender })
-      });
-  
-      if (response.ok) {
-        console.log("Registered successful");
-        window.location.href = "/";
-      } else {
-        console.log("Registered failed");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+   console.log("login",email, password, firstName, lastName, age, phone, gender )
 
     if (password === confpassword) {
-      const data = {
-        email,
-        password,
-        firstName,
-        lastName,
-        age,
-        phone,
-        gender
-      };
-      const dataString = JSON.stringify(data);
-      window.location.href = "/login";
+      try {
+        const response = await fetch("http://localhost:3001/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password, firstName, lastName, age, phone, gender })
+        });
+    
+        if (response.ok) {
+          console.log("Registered successful");
+          window.location.href = "/";
+        } else {
+          console.log("Registered failed");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
     } else {
       alert("passwords doesn't match");
     }
   }
   return (
-    <div className="bg-img">
-      <div className="registerContent">
-        <header>Register Form</header>
-        <form action="http://localhost:3001/users" method="post" onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col">
-              <h6>First name</h6>
-            </div>
-            <div className="col">
-              <h6>Last name</h6>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <div className="field">
-                <input
-                  type="text"
-                  className="form-control"
-                  required
-                  placeholder="First Name"
-                  name="firstName"
-                  onChange={(event) => setFirstName(event.target.value)}
-                ></input>
+    <section className=" ">
+    <div className="container  h-100">
+      <div className="row d-flex justify-content-center align-items-center h-100">
+        <div className="col">
+          <div className="card card-registration my-4">
+            <div className="row g-0">
+              <div className="col-xl-6 d-none d-xl-block">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo"
+                  className="img-fluid"
+                  style={{
+                    borderTopLeftRadius: '.25rem',
+                    borderBottomLeftRadius: '.25rem',
+                  }}
+                />
               </div>
-            </div>
-            <div className="col">
-              <div className="field">
-                <input
-                  type="text"
-                  className="form-control"
-                  required
-                  placeholder="Last Name"
-                  name="lastName"
-                  onChange={(event) => setLastName(event.target.value)}
-                ></input>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h6>Email</h6>
-            </div>
-            <div className="col">
-              <h6>Phone number</h6>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <div className="field">
-                <input
-                  type="email"
-                  className="form-control"
-                  required
-                  placeholder="Email"
-                  name="email"
-                  onChange={(event) => setEmail(event.target.value)}
-                ></input>
-              </div>
-            </div>
-            <div className="col">
-              <div className="field">
-                <input
-                  type="text"
-                  className="form-control"
-                  required
-                  placeholder="Phone"
-                  name="phone"
-                  onChange={(event) => setPhoneNumber(event.target.value)}
-                ></input>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h6>Password</h6>
-            </div>
-            <div className="col">
-              <h6>Confirm password</h6>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <div className="field">
-                <input
-                  type="password"
-                  className="form-control"
-                  required
-                  placeholder="Password"
-                  name="password"
-                  onChange={(event) => setPassword(event.target.value)}
-                ></input>
-              </div>
-            </div>
-            <div className="col">
-              <div className="field">
-                <input
-                  type="password"
-                  className="form-control"
-                  required
-                  placeholder="Confirm password"
-                  onChange={(event) => setconfPassword(event.target.value)}
-                ></input>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <h6>Age</h6>
-            </div>
-            <div className="col">
-              <h6>Gender</h6>
-            </div>
-          </div>
+              <div className="col-xl-6">
+                <div className="card-body p-md-5 text-black">
+                  <h3 className="mb-5 text-uppercase"> registration form</h3>
 
-          <div className="row">
-            <div className="col">
-              <div className="field">
-                <input
-                  type="text"
-                  className="form-control"
-                  required
-                  placeholder="Age"
-                  name="age"
-                  onChange={(event) => setAge(event.target.value)}
-                ></input>
-              </div>
-            </div>
-            <div className="col">
-              <div className="row">
-                <div className="col inline">
-                  <label className="radio-inline">
-                    <input type="text" name="gender"></input>
-                  </label>
+                  <div className="row">
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input
+                          type="text"
+                          id="form3Example1m"
+                          className="form-control form-control-lg"
+                          onChange={(event) => setFirstName(event.target.value)}                        />
+                        <label className="form-label" htmlFor="form3Example1m">
+                          First name
+                        </label>
+                      </div>
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input
+                          type="text"
+                          id="form3Example1n"
+                          className="form-control form-control-lg"
+                          onChange={(event) => setLastName(event.target.value)}
+                        />
+                        <label className="form-label" htmlFor="form3Example1n">
+                          Last name
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+                  <div className="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="form3Example8"
+                      className="form-control form-control-lg"
+                      onChange={(event) => setEmail(event.target.value)}
+                    />
+                    <label className="form-label" htmlFor="form3Example8">
+                      Email
+                    </label>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="form3Example8"
+                      className="form-control form-control-lg"
+                      onChange={(event) => setPhoneNumber(event.target.value)}                    />
+                    <label className="form-label" htmlFor="form3Example8">
+                      Phone
+                    </label>
+                  </div>
+                  <div className="form-outline mb-4">
+        <input
+          type="number"
+          id="formAge"
+          className="form-control form-control-lg"
+          value={age}
+          onChange={handleAgeChange}
+          min="0"
+          max="130"
+        />
+        <label className="form-label" htmlFor="formAge">
+          Age
+        </label>
+      </div>
+                  <div className="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="form3Example8"
+                      className="form-control form-control-lg"
+                      onChange={(event) => setPassword(event.target.value)}                  />
+                    <label className="form-label" htmlFor="form3Example8">
+                      Password
+                    </label>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="form3Example8"
+                      className="form-control form-control-lg"
+                      onChange={(event) => setconfPassword(event.target.value)}                 />
+                    <label className="form-label" htmlFor="form3Example8">
+                      Confirm Password
+                    </label>
+                  </div>
+                  
+
+                  <div className="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                    <h6 className="mb-0 me-4">Gender: </h6>
+                    <div className="form-check form-check-inline mb-0 me-4">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="femaleGender"
+                        value="option1"
+                        onChange={(event) => setGender(event.target.value)}
+
+                      />
+                      <label className="form-check-label" htmlFor="femaleGender">
+                        Female
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline mb-0 me-4">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="maleGender"
+                        value="option2"
+                        onChange={(event) => setGender(event.target.value)}
+                      />
+                      <label className="form-check-label" htmlFor="maleGender">
+                        Male
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline mb-0">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="otherGender"
+                        value="option3"
+                        onChange={(event) => setGender(event.target.value)}
+
+                      />
+                      <label className="form-check-label" htmlFor="otherGender">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+
+                  
+              
+
+                  <div className="d-flex justify-content-end pt-3">
+                   
+                    <button type="button" style={{backgroundColor:"#672bac"}} className="btn btn-dark  ms-2" onClick={handleSubmit}>
+                      Sign up
+                    </button>
+                  </div>
                 </div>
-                {/* <div className="col inline">
-                  <label className="radio-inline">
-                    <input type="radio" name="gender" value="female"/>
-                    Female
-                  </label>
-                </div> */}
               </div>
             </div>
           </div>
-          <div className="field space">
-            <input type="submit" value="Register Now" />
-          </div>
-        </form>
-        <div className="signup space">
-          Already have an account?
-          <a href="/">Login</a>
         </div>
       </div>
     </div>
+  </section>
   );
 }
 

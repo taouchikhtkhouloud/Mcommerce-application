@@ -139,7 +139,7 @@
 
 /* Cart Table Animation Styles */
 .cart-table-content:hover {
-  background-color: #2d2f32;
+  background-color: transparent;
 }
 
 .cart-table-image-info img {

@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
-import "../Style/home.css";
 import Card from "../component/card";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import '../Style/Products.css'
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 function Products() {
   const [data, setData] = useState([]);
@@ -75,7 +74,7 @@ function Products() {
 
   return (
     <Fragment>
-      <div className="">
+      <div className="context">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -91,7 +90,7 @@ function Products() {
     <input type="text" className="form-control" placeholder="Search this blog"  value={searchKeyword}
                             onChange={(e) => setSearchKeyword(e.target.value)}/>
     <div className="input-group-append">
-      <button className="btn btn-secondary" type="button"  onClick={handleSearch}>
+      <button className="btn btn-secondary" style={{backgroundColor:'#672bac'}} type="button"  onClick={handleSearch}>
         <i className="fa fa-search"></i>
       </button>
     </div>
@@ -131,7 +130,7 @@ function Products() {
                         {(filteredData.length > 0 ? filteredData : data).map(
                           (product: any) => (
                             <div
-                              className="col-lg-3 col-sm-6"
+                              className="col-lg-4 col-sm-6"
                               onClick={() => handleLinkClick(product._id)}
                               style={{ cursor: "pointer" }}
                               key={product._id}

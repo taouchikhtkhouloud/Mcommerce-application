@@ -1,0 +1,98 @@
+.product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+  
+  .product .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .product .left {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .product .right {
+    flex: 1;
+    padding: 10px;
+   
+  }
+  
+  .product h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .product h2 {
+    font-size: 18px;
+    color: #777;
+  }
+  
+  .product h3 {
+    font-size: 24px;
+    color: #f00; /* You can choose your desired color */
+  }
+  
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .product p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .product .fa-star {
+    color: #ffcc00;
+  }
+  
+  .product .quantity {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .product .angle {
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  .product .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .product #price {
+    font-size: 24px;
+    color: #f00; /* You can choose your desired color */
+  }
+  
+  .product .right p {
+    margin: 10px 0;
+  }
+  
+  .product .right a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+  }
+  
+  .product .right a:hover {
+    text-decoration: underline;
+  }
+  
