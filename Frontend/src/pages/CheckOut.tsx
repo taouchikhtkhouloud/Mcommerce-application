@@ -2,33 +2,42 @@ import { Fragment } from "react";
 import "../Style/CheckOut.css";
 function CheckOut() {
 
-  
-function submitHandler(){
-  alert("Your order has been placed!");
-}
+  const submitHandler = async () => {
+    const token = localStorage.getItem("token");
+        console.log('tokem', token);
 
+        // Check if token exists
+        if (!token) {
+          console.log("Token not found");
+          return;
+        }
+    try {
+      const response = await fetch("http://localhost:3004/payment/pay", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token,
+        },
+      });
 
-  const token = localStorage.getItem("token");
-
-  if (token) { 
-    fetch("http://localhost:3003/cart/checkout", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      },
-    }).then((response) => {
       if (response.ok) {
-        response.json().then((data) => {
-          console.log(data);
-        });
-      } else {
-        console.log("Error");
+        // Update the local state to reflect the deleted product.
+        console.log("res",response)
+        alert("Your order has been placed!");
+        window.location.href = "/";
+
       }
-    });
-  } else {
-    window.location.href = "/login";
-  }
+      else{
+        console.log("some error")
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+  
+
+
+  
   
   
 
@@ -71,6 +80,7 @@ function submitHandler(){
                     className="input"
                     data-mask="00 / 00"
                     placeholder="MM / YY"
+                    
                   />
                 </div>
                 <div className="items">
@@ -88,12 +98,13 @@ function submitHandler(){
                     className="input"
                     data-mask="0000"
                     placeholder="0000"
+                    required
                   />
                 </div>
               </div>
             </div>
 
-            <div className="bat"  onClick={submitHandler} >proceed</div>
+            <div className="bat"  onClick={()=>submitHandler()} >proceed</div>
           </div>
         </div>
       </div>

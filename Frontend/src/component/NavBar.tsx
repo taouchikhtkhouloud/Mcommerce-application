@@ -19,16 +19,24 @@ import '../Style/NavBar.css'
 
 export default function App() {
   const [showBasic, setShowBasic] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token")); // Check if the token exists initially
+
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    // Listen for changes in the token
+    setLoggedIn(!!token); // Update the loggedIn state based on the token's existence
+  }, [token]);
+
   function handleLogout() {
     // Clear the token from local storage
     localStorage.removeItem("token");
-    
+
+    // Update the loggedIn state to reflect the logout
+    setLoggedIn(false);
+
     // Redirect the user to the login page (or any other page)
     window.location.href = "/login";
   }
-  const token = localStorage.getItem("token");
- 
- const loggedIn = !!token;
   
   return (
     <MDBNavbar expand='lg' dark className='navbar'>

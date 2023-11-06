@@ -1,8 +1,7 @@
 const CartModel = require('../models/cartModel');
-const ProductModel = require('../models/productModel');
 const axios = require('axios');
 const getCartProducts = async (req, res) => {
-    const cartProducts = await CartModel.find({ UserId: req.user.id });
+    const cartProducts = await CartModel.find({ UserId: req.user.id, paid: false });
     const ProductsCart = [];
     let total = 0;
 
@@ -43,6 +42,14 @@ const getCartProducts = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+const getCard = async (req, res)=>{
+    const cartProducts = await CartModel.find({ UserId: req.params.userId, paid: false });
+    if (!cartProducts) {
+        return res.status(404).json({ error: 'Product not found' });
+    }
+    res.json(cartProducts);
+
+}
 
 const addCartProduct = async (req, res) => {
     const userId = req.user.id;
@@ -95,10 +102,8 @@ const deleteCartProduct = async (req, res) => {
 
 
 const checkout = async (req, res) => {
-    const cartProducts = await CartModel.deleteMany({ UserId: req.user.id });
-    // console.log(cartProducts);
-    let total = 0;
-    res.json({cartProducts});
+    const buyCart = await CartModel.updateMany({ UserId: req.params.userId, paid: false }, { $set: { paid: true } });    // console.log(cartProducts);
+    res.json({buyCart});
 
 }
 
@@ -106,5 +111,6 @@ module.exports = {
     getCartProducts,
     addCartProduct,
     deleteCartProduct,
-    checkout
+    checkout,
+    getCard
 }
