@@ -26,7 +26,6 @@ const getPaymentItems = async (req, res) => {
 
         // Update the paid attribute to true for the buyer's items
         const buyCart = await axios.put(`http://localhost:3003/cart/${userId}`);
-        console.log('itemss',buyCart)
         for (const cartItem of cartItems) {
             const paymentInfo = {
                 UserId: userId,
