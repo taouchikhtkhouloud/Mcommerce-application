@@ -1,5 +1,4 @@
 import "../Style/profile.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "../component/NavBar";
 import data from "../data.json";
 import clip1 from "../assets/clip-01.jpg";

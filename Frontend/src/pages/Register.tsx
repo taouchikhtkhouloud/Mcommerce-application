@@ -33,7 +33,7 @@ function Register() {
     
         if (response.ok) {
           console.log("Registered successful");
-          window.location.href = "/";
+          window.location.href = "/login";
         } else {
           console.log("Registered failed");
         }
@@ -203,7 +203,7 @@ function Register() {
 
                   <div className="d-flex justify-content-end pt-3">
                    
-                    <button type="button" style={{backgroundColor:"#672bac"}} className="btn btn-dark  ms-2" onClick={handleSubmit}>
+                    <button type="button" style={{backgroundColor:"#672bac"}} className="btn btn-dark  ms-2" onClick={handleSubmit} >
                       Sign up
                     </button>
                   </div>

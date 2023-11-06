@@ -140,6 +140,7 @@ function Products() {
                                 price={product.price}
                                 imgsrc={product.image}
                                 category={product.category}
+                                rating={product.rating}
                               />
                             </div>
                           )
