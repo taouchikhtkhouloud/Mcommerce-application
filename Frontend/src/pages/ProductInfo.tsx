@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { faStarHalf } from '@fortawesome/free-regular-svg-icons';
 function ProductInfo() {
-  const [inputValue, setInputValue] = useState({});
+  const [inputValue, setInputValue] = useState<ProductDetail | null>(null);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const productID = localStorage.getItem("productID");
   const renderStars = (rating: number) => {
@@ -38,7 +38,7 @@ function ProductInfo() {
             "Content-Type": "application/json",
           },
         });
-        const data = await response.json();
+        const data = await response.json() as ProductDetail; // Type assertion to Product
         console.log(data);
         setInputValue(data);
       } catch (error) {
@@ -84,10 +84,13 @@ function ProductInfo() {
             window.location.href = '/login';
     }
   };
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newQuantity = parseInt(e.target.value);
-    if (!isNaN(newQuantity) && newQuantity > 0 && newQuantity <= inputValue.stock) {
-      setSelectedQuantity(newQuantity);
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(event.target.value);
+    if(inputValue){
+
+      if (!isNaN(newQuantity) && newQuantity > 0 && newQuantity <= inputValue.stock) {
+        setSelectedQuantity(newQuantity);
+      }
     }
   };
 
@@ -97,21 +100,21 @@ function ProductInfo() {
       
       <div className="main">
         <div className="left">
-          <h1>{inputValue.name}</h1>
-          Category |<h2> {inputValue.category}</h2>
+          <h1>{inputValue?.name}</h1>
+          Category |<h2> {inputValue?.category}</h2>
           <img style={{ height:'200px'}}
-            src={inputValue.image}
+            src={inputValue?.image}
             alt=""
           />
         </div>
         <div className="right">
         <div className="star-ratings">
-          {renderStars(inputValue.rating)}
+          {renderStars(inputValue?.rating || 0)}
         </div>
           <p>
-           {inputValue.description}
+           {inputValue?.description}
           </p>
-          <h3>${inputValue.price}</h3>
+          <h3>${inputValue?.price}</h3>
 
           <p className="quantity">
               QUANTITY
@@ -127,7 +130,7 @@ function ProductInfo() {
               />
               <span
                 className="fa fa-angle-right angle"
-                onClick={() => setSelectedQuantity(Math.min(inputValue.stock, selectedQuantity + 1))}
+                onClick={() => setSelectedQuantity(Math.min(inputValue?.stock || 1, selectedQuantity + 1))}
               ></span>
             </p>
         </div>
@@ -135,7 +138,7 @@ function ProductInfo() {
       <div className="footer">
       <div className="left">
             <p>Total price</p>
-            <p id="price">${(inputValue.price * selectedQuantity).toFixed(2)}</p>
+            <p id="price">${((inputValue?.price || 0) * selectedQuantity).toFixed(2)}</p>
           </div>
         <div className="right">
         <button style={{backgroundColor:'#672bac', borderColor:'#672bac'}} onClick={onSubmithandler}  className="btn btn-primary">
@@ -148,3 +151,13 @@ function ProductInfo() {
 }
 
 export default ProductInfo;
+// product.ts (a separate file, for example)
+export interface ProductDetail {
+  name: string;
+  category: string;
+  image: string;
+  rating: number;
+  description: string;
+  price: number;
+  stock: number;
+}

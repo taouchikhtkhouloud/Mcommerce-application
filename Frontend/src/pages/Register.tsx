@@ -16,7 +16,7 @@ function Register() {
 
     setAge(newAge);
   };
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event:  React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
 
    console.log("login",email, password, firstName, lastName, age, phone, gender )

@@ -4,8 +4,11 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import "../Style/Cart.css";
 function Cart() {
 
-  const [cartData, setCartData] = useState({ total: 0, ProductsCart: [] });
-
+  const [cartData, setCartData] = useState<{ total: number; ProductsCart: Product[] }>({
+    total: 0,
+    ProductsCart: [],
+  });
+  
   useEffect(() => {
     const fetchCartData = async () => {
       try {
@@ -28,10 +31,9 @@ function Cart() {
 
         if (response.ok) {
           console.log("Welcome to cart");
-          const data = await response.json();
-          // console.log(data.Products);
-          console.log('data',data);
+          const data = await response.json() as { total: number; ProductsCart: Product[] };
           setCartData(data);
+   
         } else {
           // Check if token is invalid (e.g., expired or unauthorized)
           if (response.status === 401) {
@@ -171,3 +173,12 @@ function Cart() {
   );
 }
 export default Cart;
+// product.ts (a separate file, for example)
+export interface Product {
+  productcartId: string;
+  name: string;
+  category: string;
+  quantity: number;
+  price: number;
+  image: string;
+}
