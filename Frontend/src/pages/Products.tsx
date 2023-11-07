@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "../component/card";
-import "bootstrap/dist/css/bootstrap.min.css";
 import '../Style/Products.css'
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 function Products() {

@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import "../Style/Login.css";
 import Alert from "../component/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 function Login() {
 
 
