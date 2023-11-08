@@ -1,1 +1,1 @@
-GET 
+GET "http://localhost:3001/user/65482f468031a5045416c1dc"

@@ -16,6 +16,14 @@ const getUser = async (req, res) => {
     // res.json({message: `information of user with id ${req.params.id}`})
 }
 
+
+const getUserEmail = async (req, res) => {
+  const user = await userModel.findById(req.params.userId, { password: 0 });
+  // console.log(req.user.id);
+  res.json(user);
+  // res.json({message: `information of user with id ${req.params.id}`})
+}
+
 const userRegister = async (req, res) => {
 
     const { email, password } = req.body;
@@ -75,5 +83,6 @@ module.exports = {
     // getUsers,
     getUser,
     userRegister,
-    loginUser
+    loginUser,
+    getUserEmail
 }

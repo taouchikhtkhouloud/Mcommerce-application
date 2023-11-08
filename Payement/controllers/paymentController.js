@@ -1,5 +1,36 @@
 const PaymentModel = require('../models/paymentModel');
 const axios = require('axios');
+const amqp = require('amqplib');
+var channel, connection;
+/* async function setupRabbitMQ() {
+    const connection = await amqp.connect('amqp://localhost'); // Update with your RabbitMQ server URL
+    const channel = await connection.createChannel();
+
+    // Define a queue for communication
+    const queueName = 'payment_confirmation';
+    await channel.assertQueue(queueName, { durable: true });
+
+    return { connection, channel, queueName };
+} */
+
+/* async function sendPaymentConfirmation(userId, cartItems) {
+    const { channel, queueName } = await setupRabbitMQ();
+
+    const message = {
+        userId: userId,
+        cartItems: cartItems, // Pass your cart items data here
+    };
+
+    channel.sendToQueue('email_confirmation', Buffer.from(JSON.stringify(message)));
+} */
+
+async function connect() {
+    const amqpServer = "amqp://localhost:5672";
+    connection = await amqp.connect(amqpServer);
+    channel = await connection.createChannel();
+    await channel.assertQueue("PAYMENT");
+}
+connect();
 
 const getPaymentItems = async (req, res) => {
     try {
@@ -19,10 +50,10 @@ const getPaymentItems = async (req, res) => {
         // Check if the product exists and has sufficient quantity (based on the quantity requested)
         const getItems = await axios.get(`http://localhost:3003/cart/${userId}`);
         const cartItems = getItems.data;
-        
         if (!cartItems) {
             return res.status(404).json({ error: 'Cart not found' });
         }
+        console.log(cartItems)
 
         // Update the paid attribute to true for the buyer's items
         const buyCart = await axios.put(`http://localhost:3003/cart/${userId}`);
@@ -36,7 +67,15 @@ const getPaymentItems = async (req, res) => {
             const payment = new PaymentModel(paymentInfo);
             await payment.save();
         }
-
+        channel.sendToQueue(
+            "EMAIL",
+            Buffer.from(
+                JSON.stringify({
+                    cartItems,
+                    userId,
+                })
+            )
+        );
         return res.json({ message: 'Cart items purchased successfully' });
 
     } catch (error) {
