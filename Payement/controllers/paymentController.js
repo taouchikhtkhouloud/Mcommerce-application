@@ -35,7 +35,7 @@ connect();
 const getPaymentItems = async (req, res) => {
     try {
       const payments = await PaymentModel.find({ UserId: req.user.id });
-      res.json(payments);
+      res.status(200).json(payments);
     } catch (error) {
       res.status(500).json({ error: 'Error fetching payments' });
     }
@@ -76,7 +76,7 @@ const getPaymentItems = async (req, res) => {
                 })
             )
         );
-        return res.json({ message: 'Cart items purchased successfully' });
+        return res.status(200).json({ message: 'Cart items purchased successfully' });
 
     } catch (error) {
         console.error('Error updating cart items:', error);

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { faStarHalf } from '@fortawesome/free-regular-svg-icons';
+import axios from 'axios';
+
 function ProductInfo() {
   const [inputValue, setInputValue] = useState<ProductDetail | null>(null);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -30,45 +32,44 @@ function ProductInfo() {
 
     return stars;
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/products/${productID}`, {
+        const response = await axios.get(`http://localhost:9000/products/${productID}`, {
           headers: {
             "Content-Type": "application/json",
           },
         });
-        const data = await response.json() as ProductDetail; // Type assertion to Product
+        const data = response.data as ProductDetail; // Type assertion to Product
         console.log(data);
         setInputValue(data);
       } catch (error) {
         console.error("Error:", error);
       }
     };
-
+  
     fetchData();
   }, []);
-
+  
   const onSubmithandler = () => {
     const token = localStorage.getItem('token');
     if (token) {
       // Construct the data to send to the server, including the selected quantity
       const data = {
-        productid :productID,
+        productid: productID,
         quantity: selectedQuantity,
       };
-      console.log('daata', data)
-
-      fetch('http://localhost:9000/cart', {
-        method: 'POST',
+      console.log('data', data);
+  
+      axios.post('http://localhost:9000/cart', data, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
       })
         .then((response) => {
-          if (response.ok) {
+          if (response.status === 200) {
             console.log('Added to cart');
             alert('Added to cart');
           } else {
@@ -78,12 +79,12 @@ function ProductInfo() {
         .catch((error) => {
           console.error('Error:', error);
         });
-    }
-    else{
-      console.log('user not authentificated');
-            window.location.href = '/login';
+    } else {
+      console.log('User not authenticated');
+      window.location.href = '/login';
     }
   };
+  
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(event.target.value);
     if(inputValue){

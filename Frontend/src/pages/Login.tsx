@@ -2,44 +2,44 @@ import { Fragment, useState } from "react";
 import "../Style/Login.css";
 import Alert from "../component/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 function Login() {
 
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   async function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    
+  
     try {
-      const response = await fetch("http://localhost:9000/users/login", {
-        method: "POST",
+      const response = await axios.post("http://localhost:9000/users/login", {
+        email,
+        password
+      }, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
       });
   
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Login successful");
-        // window.location.href = "/";
-        response.json().then((data) => {
-          window.location.href = "/";
-          console.log(data);
-          localStorage.setItem("token", data);
-          console.log("tokem", data);
-          localStorage.setItem("user", JSON.stringify(data.user));
-        });
+        const data = response.data;
+        window.location.href = "/";
+        console.log(data);
+        localStorage.setItem("token", data);
+        console.log("token", data);
+        localStorage.setItem("user", JSON.stringify(data.user));
       } else {
-        alert("password or email not correct");
+        alert("Password or email not correct");
         window.location.href = "/login";
         console.log("Login failed");
       }
     } catch (error) {
       console.error("Error:", error);
     }
-
-
   }
+  
   return (
     <Fragment>
      <section  >

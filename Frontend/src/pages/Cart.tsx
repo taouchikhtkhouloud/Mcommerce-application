@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import "../Style/Cart.css";
+import axios from 'axios';
 function Cart() {
 
   const [cartData, setCartData] = useState<{ total: number; ProductsCart: Product[] }>({
@@ -9,31 +10,31 @@ function Cart() {
     ProductsCart: [],
   });
   
+
   useEffect(() => {
     const fetchCartData = async () => {
       try {
         const token = localStorage.getItem("token");
-        console.log('tokem', token);
-
+        console.log('token', token);
+  
         // Check if token exists
         if (!token) {
           window.location.href = "/login";
           console.log("Token not found");
           return;
         }
-
-        const response = await fetch("http://localhost:9000/cart", {
+  
+        const response = await axios.get("http://localhost:9000/cart", {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token,
           },
         });
-
-        if (response.ok) {
+  
+        if (response.status === 200) {
           console.log("Welcome to cart");
-          const data = await response.json() as { total: number; ProductsCart: Product[] };
+          const data = response.data as { total: number; ProductsCart: Product[] };
           setCartData(data);
-   
         } else {
           // Check if token is invalid (e.g., expired or unauthorized)
           if (response.status === 401) {
@@ -47,10 +48,10 @@ function Cart() {
         console.error("Error:", error);
       }
     };
-
+  
     fetchCartData();
   }, []);
-
+  
   useEffect(() => {
     // Update total price when cartData changes
     if (cartData) {

@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import "../Style/CheckOut.css";
+import axios from 'axios';
 
 function CheckOut() {
   const [formData, setFormData] = useState({
@@ -19,31 +20,31 @@ function CheckOut() {
     });
   };
 
+
   const submitHandler = async () => {
     const token = localStorage.getItem("token");
     console.log('token', token);
-
+  
     // Check if token exists
     if (!token) {
       console.log("Token not found");
       return;
     }
-
+  
     if (!cardNumber || !cardHolder || !expireDate || !cvcCode) {
       alert("Please fill out all required fields in the form.");
       return;
     }
-
+  
     try {
-      const response = await fetch("http://localhost:9000/payment/pay", {
-        method: "POST",
+      const response = await axios.post("http://localhost:9000/payment/pay", {}, {
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token,
         },
       });
-
-      if (response.ok) {
+  
+      if (response.status === 200) {
         // Update the local state to reflect the deleted product.
         console.log("res", response);
         alert("Your order has been placed!");
@@ -55,7 +56,7 @@ function CheckOut() {
       console.error("Error deleting product:", error);
     }
   };
-
+  
   return (
     <Fragment>
       <div className="wrapper">

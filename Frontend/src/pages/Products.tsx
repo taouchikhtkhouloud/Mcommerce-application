@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import Card from "../component/card";
 import '../Style/Products.css'
 import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
+import axios from 'axios'
 function Products() {
   const [data, setData] = useState([]);
   const [selectedOption, setSelectedOption] = useState("idle");
@@ -12,58 +13,58 @@ function Products() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch("http://localhost:9000/products", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
 
-      if (response.ok) {
-        const jsonData = await response.json();
-        setData(jsonData);
-      } else {
-        console.log("Failed to fetch products");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+
+const fetchData = async () => {
+  try {
+    const response = await axios.get("http://localhost:9000/products", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status === 200) {
+      const jsonData = response.data;
+      setData(jsonData);
+    } else {
+      console.log("Failed to fetch products");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 
   const handleLinkClick = (productID: any) => {
     localStorage.setItem("productID", productID);
     window.location.href = `/productinfo/${productID}`;
   };
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+
+  const handleSelectChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCategory = event.target.value;
     setSelectedOption(selectedCategory);
-    if (selectedCategory === "idle") {
-      fetchData();
-    } else {
-      fetch(`http://localhost:9000/filter/category/${selectedCategory}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Failed to retrieve filtered data from server");
-          }
-        })
-        .then((responseData) => {
-          setData(responseData.filteredProducts);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
+  
+    try {
+      if (selectedCategory === "idle") {
+        await fetchData();
+      } else {
+        const response = await axios.get(`http://localhost:9000/filter/category/${selectedCategory}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
+  
+        if (response) {
+          setData(response.data.filteredProducts);
+        } else {
+          throw new Error("Failed to retrieve filtered data from server");
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
-
+  
   const handleSearch = () => {
     const filteredResults = data.filter((product: any) =>
       product.name.toLowerCase().includes(searchKeyword.toLowerCase())

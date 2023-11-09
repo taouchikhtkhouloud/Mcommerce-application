@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 
 function Register() {
   const [firstName, setFirstName] = useState("");
@@ -9,40 +10,49 @@ function Register() {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [confpassword, setconfPassword] = useState("");
+  
   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Ensure the input value is within the desired range
     const newAge = Math.min(130, Math.max(0, +e.target.value)) || '';
 
     setAge(newAge);
   };
-  async function handleSubmit(event:  React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
 
-   console.log("login",email, password, firstName, lastName, age, phone, gender )
+async function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
+  event.preventDefault();
 
-    if (password === confpassword) {
-      try {
-        const response = await fetch("http://localhost:9000/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ email, password, firstName, lastName, age, phone, gender })
-        });
-    
-        if (response.ok) {
-          console.log("Registered successful");
-          window.location.href = "/login";
-        } else {
-          console.log("Registered failed");
+  console.log("login", email, password, firstName, lastName, age, phone, gender);
+
+  if (password === confpassword) {
+    try {
+      const response = await axios.post("http://localhost:9000/users", {
+        email,
+        password,
+        firstName,
+        lastName,
+        age,
+        phone,
+        gender
+      }, {
+        headers: {
+          "Content-Type": "application/json"
         }
-      } catch (error) {
-        console.error("Error:", error);
+      });
+
+      if (response.status === 200) {
+        console.log("Registered successfully");
+        window.location.href = "/login";
+      } else {
+        console.log("Registration failed");
       }
-    } else {
-      alert("passwords doesn't match");
+    } catch (error) {
+      console.error("Error:", error);
     }
+  } else {
+    alert("Passwords don't match");
   }
+}
+
   return (
     <section className=" ">
     <div className="container  h-100">

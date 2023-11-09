@@ -26,7 +26,7 @@ const getProductByName = async (req, res) => {
 const getProductById = async (req, res) => {
     try {
         const productDetails = await productModel.findById(req.params.id);
-        res.json(productDetails);
+        res.status(200).json(productDetails);
     } catch (error) {
         res.status(400).json(error);
     }

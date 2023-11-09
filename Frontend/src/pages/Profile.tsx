@@ -3,6 +3,8 @@ import "../Style/profile.css";
 import profile from "../assets/profile.jpg";
 import profileg from "../assets/profileGirl.jpg";
 import { useState, useEffect, Fragment } from "react";
+import axios from 'axios';
+
 function Profile() {
   interface User {
     gender: string;
@@ -18,25 +20,28 @@ function Profile() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:9000/users/", {
-        method: "GET",
+      axios.get("http://localhost:9000/users/", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }).then((response) => {
-        if (response.ok) {
-          response.json().then((data) => {
-            setUser(data);
-          });
-        } else {
-          window.location.href = "/login";
-        }
-      });
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            setUser(response.data);
+          } else {
+            window.location.href = "/login";
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Handle error as needed
+        });
     } else {
       window.location.href = "/login";
     }
   }, []);
+  
 
 
   // var image = profile;
