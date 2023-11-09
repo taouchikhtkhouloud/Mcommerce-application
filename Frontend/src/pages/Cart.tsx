@@ -22,7 +22,7 @@ function Cart() {
           return;
         }
 
-        const response = await fetch("http://localhost:3003/cart", {
+        const response = await fetch("http://localhost:9000/cart", {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token,
@@ -74,7 +74,7 @@ function Cart() {
           return;
         }
     try {
-      const response = await fetch(`http://localhost:3003/cart/${productId}`, {
+      const response = await fetch(`http://localhost:9000/cart/${productId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

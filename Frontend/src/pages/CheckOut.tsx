@@ -35,7 +35,7 @@ function CheckOut() {
     }
 
     try {
-      const response = await fetch("http://localhost:3004/payment/pay", {
+      const response = await fetch("http://localhost:9000/payment/pay", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

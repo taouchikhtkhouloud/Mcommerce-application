@@ -33,7 +33,7 @@ function ProductInfo() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3002/products/${productID}`, {
+        const response = await fetch(`http://localhost:9000/products/${productID}`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -59,7 +59,7 @@ function ProductInfo() {
       };
       console.log('daata', data)
 
-      fetch('http://localhost:3003/cart', {
+      fetch('http://localhost:9000/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

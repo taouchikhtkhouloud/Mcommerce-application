@@ -22,7 +22,7 @@ function Register() {
 
     if (password === confpassword) {
       try {
-        const response = await fetch("http://localhost:3001/users", {
+        const response = await fetch("http://localhost:9000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

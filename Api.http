@@ -1,1 +1,4 @@
-GET "http://localhost:3001/user/65482f468031a5045416c1dc"
+GET http://localhost:9000/cart/6546b74a00af9419343a82cd 
+
+
+

@@ -14,7 +14,7 @@ function Products() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3002/products", {
+      const response = await fetch("http://localhost:9000/products", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -42,7 +42,7 @@ function Products() {
     if (selectedCategory === "idle") {
       fetchData();
     } else {
-      fetch(`http://localhost:3002/filter/category/${selectedCategory}`, {
+      fetch(`http://localhost:9000/filter/category/${selectedCategory}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
