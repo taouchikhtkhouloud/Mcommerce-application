@@ -1,0 +1,62 @@
+stages:
+  - build
+  - test
+  - scan
+  - package
+  - deploy
+
+variables:
+  DOCKER_REGISTRY: registry.example.com
+  DOCKER_IMAGE_PREFIX: myapp
+  DOCKER_IMAGE_TAG: latest
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $DOCKER_REGISTRY
+
+services:
+  - docker:dind
+
+microservice1:
+  stage: build
+  script:
+    - docker build -t $DOCKER_REGISTRY/$DOCKER_IMAGE_PREFIX/microservice1:$DOCKER_IMAGE_TAG ./microservices/microservice1
+
+microservice1-test:
+  stage: test
+  script:
+    - # Add testing commands for microservice1
+
+microservice1-scan:
+  stage: scan
+  script:
+    - # Add security scanning commands for microservice1
+
+microservice1-package:
+  stage: package
+  script:
+    - docker push $DOCKER_REGISTRY/$DOCKER_IMAGE_PREFIX/microservice1:$DOCKER_IMAGE_TAG
+
+# Repeat the above sections for each microservice...
+
+frontend:
+  stage: build
+  script:
+    - docker build -t $DOCKER_REGISTRY/$DOCKER_IMAGE_PREFIX/frontend:$DOCKER_IMAGE_TAG ./frontend
+
+frontend-test:
+  stage: test
+  script:
+    - # Add testing commands for the frontend
+
+frontend-scan:
+  stage: scan
+  script:
+    - # Add security scanning commands for the frontend
+
+frontend-package:
+  stage: package
+  script:
+    - docker push $DOCKER_REGISTRY/$DOCKER_IMAGE_PREFIX/frontend:$DOCKER_IMAGE_TAG
+
+# Deployment stages...
+
