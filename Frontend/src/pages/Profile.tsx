@@ -1,7 +1,7 @@
 import "../Style/profile.css";
 
-import profile from "../assets/profile.jpg";
-import profileg from "../assets/profileGirl.jpg";
+import profile from "../assets/user.webp";
+import profileg from "../assets/userF.jpeg";
 import { useState, useEffect, Fragment } from "react";
 import axios from 'axios';
 
@@ -66,25 +66,26 @@ function Profile() {
                         <div className="main-info header-text">
                           <h1 id="firstname">{user?.firstName}</h1>
                           <h5 id="lastname">{user?.lastName}</h5>
-                          <p>"I'm {user?.firstName}, a passionate gamer who loves exploring new worlds and conquering challenges. Let's conquer the gaming world together!"</p>
+                          <p>"I'm {user?.firstName}, Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, ratione. Et possimus, sunt odio, porro exercitationem dolorum, debitis iusto neque harum asperiores nulla laudantium maxime magnam illum autem officiis quia. "</p>
+                          <ul>
+                          <li>
+                            Email :<span>{user?.email}</span>
+                          </li>
+                          <li>
+                            Age :<span>{user?.age}</span>
+                          </li>
+                          <li>
+                            Phone Number : <span>{user?.phone}</span>
+                          </li>
+                         
+                        </ul>
                           <div className="main-border-button">
                             <a href="#">Update</a>
                           </div>
                         </div>
                       </div>
                       <div className="col-lg-4 align-self-center">
-                        <ul>
-                          <li>
-                            Email <span>{user?.email}</span>
-                          </li>
-                          <li>
-                            Age <span>{user?.age}</span>
-                          </li>
-                          <li>
-                            Phone Number <span>{user?.phone}</span>
-                          </li>
-                         
-                        </ul>
+                       
                       </div>
                     </div>
                     {/* Rest of the JSX code */}

@@ -1,6 +1,11 @@
 const express = require('express');
 const cors = require('cors');
+const axios = require('axios');
+const nodemailer = require('nodemailer');
+const Mailgen = require('mailgen');
+const amqp = require('amqplib');
 const app = express();
+
 app.use(express.json());
 
 
@@ -11,10 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const axios = require('axios');
-const nodemailer = require('nodemailer');
-const Mailgen = require('mailgen');
-const amqp = require('amqplib');
+
 var channel, connection;
 async function connect() {
     const amqpServer = "amqp://localhost:5672";
@@ -23,7 +25,6 @@ async function connect() {
     await channel.assertQueue("EMAIL");
 }
 const lock = new Map(); // Create a lock map to track which messages are being processed
-
 connect().then(() => {
     channel.consume("EMAIL", async (data) => {
         console.log("Consuming EMAIL service");
@@ -31,28 +32,19 @@ connect().then(() => {
         console.log("cartItems", cartItems);
         console.log("userId", userId)
        
-        // Check if the message is already being processed
         if (!lock.has(userId)) {
-            // Set a lock for this user
             lock.set(userId, true);
-
-            // Process the message
-      
-
             const sendEmail = await sendConfirmationMAil(userId, cartItems)
             .then(() => {
                 channel.ack(data);
                 lock.delete(userId);
                 console.log("delete user lock") // Remove the lock
             }).catch((error) => {
-                // Handle errors and release the lock
                 console.error("Error sending email:", error);
                 channel.ack(data);
                 lock.delete(userId);
-                 // Remove the lock
             });
         } else {
-            // Message is already being processed, do not consume it again
             console.log(`Message for user ${userId} is already being processed.`);
             channel.ack(data);
         }

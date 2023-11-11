@@ -212,10 +212,12 @@ async function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
 
                   <div className="d-flex justify-content-end pt-3">
                    
-                    <button type="button" style={{backgroundColor:"#672bac"}} className="btn btn-dark  ms-2" onClick={handleSubmit} >
+                    <button type="button" style={{backgroundColor:"#672bac"}} className="btn btn-dark  ms-2" onClick={handleSubmit}  >
                       Sign up
                     </button>
                   </div>
+                  <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>You have an account? <a href="/login" style={{ color: '#393f81' }}>Sign in here</a></p>
+
                 </div>
               </div>
             </div>

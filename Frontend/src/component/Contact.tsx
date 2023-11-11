@@ -31,16 +31,16 @@ const ContactUs = () => {
           Let's Get Started
         </h1>
         <h2>
-          Contact us to start your next project!
+          We are responsive to messages !
         </h2>
       </div>
       <div className="address">
         <i className="fas fa-map-marker-alt"></i>
         <h3>
-          8266 Gygax
+          8266 KAta
         </h3>
         <h3>
-          Norfolk, VA
+          Kata, VA
         </h3>
       </div>
       <div className="phone">
@@ -52,14 +52,14 @@ const ContactUs = () => {
       <div className="email">
         <i className="fas fa-envelope"></i>
         <h3>
-          hello@adept.com
+          Mcommerce@gmail.com
         </h3>
       </div>
       <div className="contact-form">
         <form>
           <input placeholder="Name" type="text" />
           <input placeholder="Email" type="email" />
-          <textarea placeholder="Tell us about your project..." rows={4}></textarea>
+          <textarea placeholder="Message" rows={4}></textarea>
           <button type="button">SEND</button>
         </form>
       </div>

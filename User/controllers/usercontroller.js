@@ -4,10 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-// const getUsers = async (req, res) => {
-//     // const allusers = await userModel.find();
-//     res.json(req.user)
-// }
+
 
 const getUser = async (req, res) => {
     const user = await userModel.findById(req.user.id, { password: 0 });
@@ -40,11 +37,7 @@ const userRegister = async (req, res) => {
             age: req.body.age,
             phone: req.body.phone,
             gender: req.body.gender
-        }
-
-
-
-        )
+        })
 
         res.json(user.id)
     }

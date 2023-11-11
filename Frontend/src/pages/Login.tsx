@@ -60,7 +60,7 @@ function Login() {
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form action="http://localhost:3001/users" method="post" >
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <span className="h1 fw-bold mb-0">Sign into your account</span>
+                        <span className="h1 fw-bold mb-0" style={{color:"#672bac"}}>Sign into your account</span>
                       </div>
 
 
@@ -75,7 +75,7 @@ function Login() {
                       </div>
 
                       <div className="pt-1 mb-4">
-                        <button className="btn btn-dark btn-lg btn-block" type="submit" onClick={handleSubmit}>Login</button>
+                        <button className="btn btn-dark btn-lg btn-block" style={{backgroundColor:"#672bac"}} type="submit" onClick={handleSubmit}>Login</button>
                       </div>
 
                       <p className="mb-5 pb-lg-2" style={{ color: '#393f81' }}>Don't have an account? <a href="/register" style={{ color: '#393f81' }}>Register here</a></p>

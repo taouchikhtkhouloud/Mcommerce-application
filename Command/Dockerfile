@@ -1,6 +1,17 @@
-FROM node:latest
+FROM node:20.1.0
+
+# Create App Directory
 WORKDIR /app
-COPY . /app
-EXPOSE 3003:3003
-RUN npm install
-CMD npm run dev
+
+# Install Dependencies
+COPY package*.json ./
+
+RUN npm install --silent
+
+# Copy app source code
+COPY . .
+
+# Exports
+EXPOSE 3003
+
+CMD ["npm","start"]

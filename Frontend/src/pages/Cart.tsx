@@ -65,43 +65,42 @@ function Cart() {
 
  
   const handleDelete = async (productId: string) => {
-    console.log("test",productId)
+    console.log("test", productId);
     const token = localStorage.getItem("token");
-        console.log('tokem', token);
-
-        // Check if token exists
-        if (!token) {
-          console.log("Token not found");
-          return;
-        }
+    console.log('token', token);
+  
+    // Check if token exists
+    if (!token) {
+      console.log("Token not found");
+      return;
+    }
+  
     try {
-      const response = await fetch(`http://localhost:9000/cart/${productId}`, {
-        method: "DELETE",
+      const response = await axios.delete(`http://localhost:9000/cart/${productId}`, {
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token,
         },
       });
-
-      if (response.ok) {
+  
+      if (response.status === 200) {
         // Update the local state to reflect the deleted product.
         const updatedCart = cartData.ProductsCart.filter(
           (product) => product.productcartId !== productId
         );
-
+  
         const updatedTotal = updatedCart.reduce(
           (total, product) => total + product.price,
           0
         );
-
+  
         setCartData({
           ...cartData,
           ProductsCart: updatedCart,
           total: updatedTotal,
         });
-      }
-      else{
-        console.log("some error")
+      } else {
+        console.log("some error");
       }
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -115,7 +114,7 @@ function Cart() {
           <div className="cart-page">
             <div className="cart-page-container">
               <div className="cart-page-header">
-                <h2 className="cart-header-text">Your Games Cart</h2>
+                <h2 className="cart-header-text">Your  Cart</h2>
               </div>
               <div className="cart-page-table">
                 <table className="cart-table-product">

@@ -1,6 +1,7 @@
-FROM node:latest
+FROM node:20.1.0
 WORKDIR /app
-COPY . /app
-EXPOSE 3001:3001
-RUN npm install
-CMD npm run dev
+COPY package*.json ./
+RUN npm install 
+COPY . .
+EXPOSE 3001
+CMD ["node", "server.js"]

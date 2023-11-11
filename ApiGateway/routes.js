@@ -6,7 +6,7 @@ const ROUTES = [
         auth: false,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
-            max: 5
+            max: 60
         },
         proxy: {
             target: "http://localhost:3002/products",
@@ -21,7 +21,7 @@ const ROUTES = [
         auth: false,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
-            max: 5
+            max: 60
         },
         proxy: {
             target: "http://localhost:3002/filter",
@@ -36,7 +36,7 @@ const ROUTES = [
         auth: true,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
-            max: 5
+            max: 60
         },
         middleware: [validateToken], // Add validateToken middleware for authentication
         proxy: {
@@ -52,7 +52,7 @@ const ROUTES = [
         auth: true,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
-            max: 5
+            max: 60
         },
         middleware: [validateToken], // Add validateToken middleware for authentication
         proxy: {

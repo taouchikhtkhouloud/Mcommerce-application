@@ -1,4 +1,4 @@
-
+/* 
   .widt {
     padding-top: 50px;
     background: transparent;
@@ -237,4 +237,98 @@ img{
   margin-top: 10px;
   text-align: center;
   }
-  
+   */
+
+   /* profile.css */
+
+.widt {
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-lg-12 {
+  width: 100%;
+}
+
+.page-content {
+  padding: 20px;
+}
+
+.main-profile {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.main-info {
+  text-align: left;
+}
+
+#firstname {
+  color: #333;
+  font-size: 24px;
+  margin: 0;
+}
+
+#lastname {
+  color: #555;
+  font-size: 18px;
+  margin: 5px 0 20px 0;
+}
+
+main-info p {
+  color: #777;
+  font-size: 16px;
+}
+
+.main-border-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #672bac;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.main-border-button a:hover {
+  background-color: #975dd8;
+}
+
+.col-lg-4 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.col-lg-4,
+.col-lg-8 {
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li span {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-lg-4,
+  .col-lg-8 {
+    padding: 10px;
+  }
+}
